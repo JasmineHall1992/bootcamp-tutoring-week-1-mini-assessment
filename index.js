@@ -17,7 +17,7 @@ let getLastMedicationInfo = (patient) => {
     const instructions = lastMedicine.frequency;
 
     //use a template literal to place together
-    const infoReturned = `${lastName} - ${lastType} - ${instructions}`;
+    const infoReturned = `${lastName} - ${lastType} - Administer ${instructions}`;
     return infoReturned;
 };
 
