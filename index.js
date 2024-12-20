@@ -29,7 +29,6 @@ let getObjectKeyValues = (patients) => {
     // Iterate backwards through every other object
     for (let i = patients.length - 1; i >= 0; i -= 2) {
         const patient = patients[i]; // Get the current patient object
-
         // Use a for-in loop to access each key in the patient object
         for (let key in patient) {
             if (typeof patient[key] === "boolean") { // Check if the property is boolean
@@ -44,7 +43,41 @@ let getObjectKeyValues = (patients) => {
 };
 
 // Problem #3 //
-let getDailyMedications; 
+//I: an array of animal patients
+//O: a new output array of objects that include the name, type and administration of medicine
+// Problem #3 //
+// I: an array of animal patients
+// O: a new output array of objects that include the name, type, and administration of medicine
+
+   let getDailyMedications = (patients) => {
+        // Create an empty output array
+        const output = [];
+    
+        // Outer loop: iterate over each patient
+        for (let i = 0; i < patients.length; i++) {
+            const patient = patients[i]; // Access each patient
+    
+            // Inner loop: iterate over each medication for the current patient
+            for (let j = 0; j < patient.medications.length; j++) {
+                const medication = patient.medications[j]; // Access medication
+    
+                // Push the required object into the output array
+                output.push({
+                    name: patient.name,//access name
+                    type: patient.type,//access type
+                    administration: patient.administration;
+                });
+            }
+        }
+    
+        // Return the final output array
+        return output;
+    };
+    
+
+
+
+console.log(getDailyMedications(patients));
 
 // Problem #4 //
 let getOneMedBySpecies; 
