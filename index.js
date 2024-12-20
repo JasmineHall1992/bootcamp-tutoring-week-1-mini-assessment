@@ -23,7 +23,19 @@ let getLastMedicationInfo = (patient) => {
 //I: one parameter that represents an array of patients
 //O: an array of strings
 let getObjectKeyValues = (patients) =>
-    // a backwads
+//make an empty output array
+    let output = [];
+    // a backwards array, that iterates through every other object
+    for (let i = patients.length - 1; i >= 0;  i -= 2){
+        //a for in loop that accesses each key of the patients object
+            for (let key in patients){
+                //if statement to see if each property is a boolean
+                if (typeof patients[key] === "boolean")
+                    output.push(patients[key]);
+                    return output;
+            }
+    }
+
 
 // Problem #3 //
 let getDailyMedications 
