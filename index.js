@@ -56,23 +56,18 @@ let getObjectKeyValues = (patients) => {
         // Outer loop: iterate over each patient
         for (let i = 0; i < patients.length; i++) {
             const patient = patients[i]; // Access each patient
-    
-            // Inner loop: iterate over each medication for the current patient
-            for (let j = 0; j < patient.medications.length; j++) {
-                const medication = patient.medications[j]; // Access medication
-    
                 // Push the required object into the output array
                 output.push({
                     name: patient.name,//access name
                     type: patient.type,//access type
-                    administration: patient.administration;
+                    administration: patient.administration
                 });
             }
         }
     
         // Return the final output array
         return output;
-    };
+    
     
 
 
