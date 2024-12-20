@@ -14,7 +14,7 @@ let getLastMedicationInfo = (patient) => {
     //the last medicine's type
     const lastType = lastMedicine.type;
     //the last medicines frequency
-    const instructions = lastMedicine.frequency;
+    const instructions = lastMedicine.administration.frequency;
 
     //use a template literal to place together
     const infoReturned = `${lastName} - ${lastType} - Administer ${instructions}`;
@@ -45,9 +45,7 @@ let getObjectKeyValues = (patients) => {
 // Problem #3 //
 //I: an array of animal patients
 //O: a new output array of objects that include the name, type and administration of medicine
-// Problem #3 //
-// I: an array of animal patients
-// O: a new output array of objects that include the name, type, and administration of medicine
+//C: should have a nested for loop
 
 let getDailyMedications = (patients) => {
     // Create an empty output array
@@ -55,15 +53,11 @@ let getDailyMedications = (patients) => {
 
     // Outer loop: iterate over each patient
     for (let i = 0; i < patients.length; i++) {
-        const patient = patients[i]; // Access each patient
-        
-        // Push the required object into the output array
-        output.push({
-            name: patient.name, // Access name
-            type: patient.type, // Access type
-            administration: patient.administration // Access administration
-        });
-    }
+        const patient = patients[i].medications; // Access each patient
+        for (let j = 0; j < patient.length; j++){
+            if (patient[j].administration.frequency === 'Daily'){
+                    output.push(patient[j]);
+            }
     
     // Return the final output array
     return output;
