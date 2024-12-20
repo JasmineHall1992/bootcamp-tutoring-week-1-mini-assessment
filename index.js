@@ -49,25 +49,26 @@ let getObjectKeyValues = (patients) => {
 // I: an array of animal patients
 // O: a new output array of objects that include the name, type, and administration of medicine
 
-   let getDailyMedications = (patients) => {
-        // Create an empty output array
-        const output = [];
+let getDailyMedications = (patients) => {
+    // Create an empty output array
+    const output = [];
+
+    // Outer loop: iterate over each patient
+    for (let i = 0; i < patients.length; i++) {
+        const patient = patients[i]; // Access each patient
+        
+        // Push the required object into the output array
+        output.push({
+            name: patient.name, // Access name
+            type: patient.type, // Access type
+            administration: patient.administration // Access administration
+        });
+    }
     
-        // Outer loop: iterate over each patient
-        for (let i = 0; i < patients.length; i++) {
-            const patient = patients[i]; // Access each patient
-                // Push the required object into the output array
-                output.push({
-                    name: patient.name,//access name
-                    type: patient.type,//access type
-                    administration: patient.administration
-                });
-            }
-        }
-    
-        // Return the final output array
-        return output;
-    
+    // Return the final output array
+    return output;
+};
+
     
 
 
