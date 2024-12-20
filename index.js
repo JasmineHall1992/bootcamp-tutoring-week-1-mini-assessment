@@ -69,11 +69,30 @@ let getDailyMedications = (patients) => {
     return output;
 };
 
-    
-
-
 
 console.log(getDailyMedications(patients));
 
 // Problem #4 //
-let getOneMedBySpecies; 
+//I: two parameters, patients and species, patient is an array, species is a string
+//O: The function will return an array of objects. Each object includes:
+//patient: A string combining the patient’s name and species.
+//medication: A string representing the name of the single medication.
+const getOneMedBySpecies = (patients, species) => {
+    const output = []; // Initialize an empty output array
+
+    // Loop through the patients array
+    for (let i = 0; i < patients.length; i++) {
+        const patient = patients[i];
+
+        // Check if species matches and medications length is 1
+        if (patient.species === species && patient.medications.length === 1) {
+            output.push({
+                patient: `${patient.name} - ${patient.species}`,
+                medication: patient.medications[0].name
+            });
+        }
+    }
+
+    return output; // Return the output array
+};
+
